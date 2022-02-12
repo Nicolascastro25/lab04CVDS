@@ -14,6 +14,7 @@ public class OriginalScore implements GameScore {
     * Esta clase calcula el puntaje para el tipo de juego original.
     * @param correctCount 
     * @param incorrectCount
+    * @pre puntaje inicia con 100 puntos
     * @pos Se calcula el puntaje usando la ecuacion: 100-(10*incorrectCount)
     * en caso de que incorrectCount sea > 10 y el valor sea negativo; el puntaje 
     * por defecto cerá cero.
@@ -21,6 +22,16 @@ public class OriginalScore implements GameScore {
     * @throws cuando correctCount o incorrectCount son valores negativos
     */
     public int calculateScore(int correctCount, int incorrectCount) {
-        return 0;
+        int puntaje = 100;
+        if(correctCount <0 || incorrectCount < 0){
+            throw new GameScoreException(GameScoreException.INVALIDCOUNT);
+        }else{
+            puntaje = 100 - (10*incorrectCount);
+            if(puntaje < 0){
+                puntaje = 0;
+            }
+        return puntaje;   
+        }
+        
     }
 }

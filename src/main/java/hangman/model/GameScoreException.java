@@ -9,5 +9,8 @@ package hangman.model;
  * @author jaime.cacuna
  */
 public class GameScoreException extends Exception {
-    
+    public final String 
+    public GameScoreException(String msg){
+        super(msg);
+    }
 }
