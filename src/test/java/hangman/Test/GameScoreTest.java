@@ -15,7 +15,7 @@ import org.junit.Assert;
 
 /**
  *
- * @author jaime.cacuna
+ * @author jaime.cacuna Valentina Alvarado
  */
 public class GameScoreTest {
     

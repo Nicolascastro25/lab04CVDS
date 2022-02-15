@@ -6,7 +6,7 @@ package hangman.model;
 
 /**
  *
- * @author jaime.cacuna
+ * @author jaime.cacuna Valentina Alvarado
  */
 public class OriginalScore implements GameScore {
     
@@ -15,23 +15,22 @@ public class OriginalScore implements GameScore {
     * @param correctCount 
     * @param incorrectCount
     * @pre puntaje inicia con 100 puntos
-    * @pos Se calcula el puntaje usando la ecuacion: 100-(10*incorrectCount)
+    * @pos Se calcula el puntaje usando la ecuacion: puntaje-(10*incorrectCount)
     * en caso de que incorrectCount sea > 10 y el valor sea negativo; el puntaje 
     * por defecto cerá cero.
     * @return int
     * @throws cuando correctCount o incorrectCount son valores negativos
     */
-    public int calculateScore(int correctCount, int incorrectCount) {
+    public int calculateScore(int correctCount, int incorrectCount) throws GameScoreException{
         int puntaje = 100;
         if(correctCount <0 || incorrectCount < 0){
             throw new GameScoreException(GameScoreException.INVALIDCOUNT);
         }else{
-            puntaje = 100 - (10*incorrectCount);
+            puntaje -= 10*incorrectCount;
             if(puntaje < 0){
                 puntaje = 0;
             }
-        return puntaje;   
         }
-        
+        return puntaje;
     }
 }

@@ -15,5 +15,5 @@ public interface GameScore {
     * @param incorrectCount
     * @return int
     */ 
-    public abstract int calculateScore(int correctCount, int incorrectCount);
+    int calculateScore(int correctCount, int incorrectCount) throws GameScoreException ;
 }

@@ -6,7 +6,7 @@ package hangman.model;
 
 /**
  *
- * @author jaime.cacuna
+ * @author jaime.cacuna valentina Alvarado
  */
 public class BonusScore implements GameScore{
 
@@ -20,7 +20,17 @@ public class BonusScore implements GameScore{
     * @return int
     * @throws cuando correctCount o incorrectCount son valores negativos
     */
-    public int calculateScore(int correctCount, int incorrectCount) {
-        return 0;
+    public int calculateScore(int correctCount, int incorrectCount) throws GameScoreException {
+        int score = 0;
+        if (correctCount < 0 || incorrectCount < 0) {
+            throw new GameScoreException(GameScoreException.INVALIDCOUNT);
+        } else {
+            score += 10 * correctCount;
+            score -= 5 * incorrectCount;
+            if(score < 0){
+                score = 0;
+            }
+        }
+        return score;
     }
 }

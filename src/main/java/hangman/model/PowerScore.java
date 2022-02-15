@@ -6,7 +6,7 @@ package hangman.model;
 
 /**
  *
- * @author jaime.cacuna
+ * @author jaime.cacuna Valentina Alvarado
  */
 public class PowerScore implements GameScore{
 
@@ -20,7 +20,22 @@ public class PowerScore implements GameScore{
     * @return int
     * @throws cuando correctCount o incorrectCount son valores negativos
     */
-    public int calculateScore(int correctCount, int incorrectCount) {
-        return 0;
+    public int calculateScore(int correctCount, int incorrectCount) throws GameScoreException {
+        int score = 0;
+        if(correctCount < 0 || incorrectCount < 0){
+            throw new GameScoreException(GameScoreException.INVALIDCOUNT);
+        }else{
+            score -= 8 * incorrectCount;
+            for(int i=1;i<=correctCount;i++){
+                score += Math.pow(5,i);
+            }
+            if(score > 500){
+                score = 500;
+            }
+            if(score < 0){
+                score = 0;
+            }
+        }
+        return score;
     }
 }
