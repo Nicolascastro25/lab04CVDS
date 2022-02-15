@@ -6,7 +6,7 @@ package hangman.model;
 
 /**
  *
- * @author jaime.cacuna
+ * @author jaime.cacuna, Valentina Alvarado
  */
 public interface GameScore {
     /*

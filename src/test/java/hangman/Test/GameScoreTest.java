@@ -31,7 +31,7 @@ public class GameScoreTest {
     public void deberiacalcularpuntajeos() throws GameScoreException{
         GameScore score = new OriginalScore();
         int punt = score.calculateScore(2,5);
-        Assert.assertEquals(score,50);
+        Assert.assertEquals(punt,50);
     }
     
     //bonusscore
@@ -48,7 +48,7 @@ public class GameScoreTest {
     public void deberiacalcularpuntajebs() throws GameScoreException{
         GameScore score = new BonusScore();
         int punt = score.calculateScore(2,5);
-        Assert.assertEquals(score,50);
+        Assert.assertEquals(punt,0);
     }
     
     //powerscore
@@ -65,6 +65,6 @@ public class GameScoreTest {
     public void deberiacalcularpuntajeps() throws GameScoreException{
         GameScore score = new PowerScore();
         int punt = score.calculateScore(2,5);
-        Assert.assertEquals(score,50);
+        Assert.assertEquals(punt,0);
     }
 }
