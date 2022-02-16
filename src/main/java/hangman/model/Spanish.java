@@ -5,11 +5,16 @@
  */
 package hangman.model;
 
+import com.google.inject.Inject;
+
 /**
  *
  * @author 2106913
  */
 public class Spanish implements Language{
+
+    @Inject
+    public Spanish(){}
 
     @Override
     public String[] getFunctionControllerNames() {

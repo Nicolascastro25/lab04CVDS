@@ -4,11 +4,18 @@
  */
 package hangman.model;
 
+import com.google.inject.Inject;
+
 /**
  *
  * @author jaime.cacuna Valentina Alvarado
  */
 public class PowerScore implements GameScore{
+    private int score;
+    @Inject
+    public PowerScore() {
+        score = 0;
+    }
 
     /*
     * Esta clase calcula el puntaje para el tipo de juego power bonus.
@@ -21,7 +28,6 @@ public class PowerScore implements GameScore{
     * @throws cuando correctCount o incorrectCount son valores negativos
     */
     public int calculateScore(int correctCount, int incorrectCount) throws GameScoreException {
-        int score = 0;
         if(correctCount < 0 || incorrectCount < 0){
             throw new GameScoreException(GameScoreException.INVALIDCOUNT);
         }else{

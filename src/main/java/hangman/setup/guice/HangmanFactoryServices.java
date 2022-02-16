@@ -4,31 +4,34 @@
  * and open the template in the editor.
  */
 package hangman.setup.guice;
+import com.google.inject.Inject;
 
 /**
  *
  * @author 2106913
  */
 
-import com.google.inject.Inject;
 
-import hangman.model.French;
-import hangman.model.GameScore;
-import hangman.model.Language;
+
+import hangman.model.*;
+import hangman.model.dictionary.EnglishDictionaryDataSource;
 import hangman.model.dictionary.HangmanDictionary;
 import hangman.model.dictionary.FrenchDictionaryDataSource;
 import hangman.view.HangmanNoviolentoPanel;
 import hangman.view.HangmanPanel;
+import hangman.model.GameScore;
+import hangman.view.HangmanStickmanPanel;
 
-public class HangmanFactoryServices extends com.google.inject.AbstractModule {
+
+public class HangmanFactoryServices extends com.google.inject.AbstractModule{
 
     @Override
     protected void configure() {
         /* Guice dependency injection */
         bind(GameScore.class).to(OriginalScore.class);
-        bind(Language.class).to(French.class);
-        bind(HangmanDirectionary.class).to(FrenchDictionaryDataSource.class);
-        bind(HangmanPanel.class).to(HangmanStickmanPanel.class);
+            bind(Language.class).to(English.class);
+            bind(HangmanDictionary.class).to(EnglishDictionaryDataSource.class);
+            bind(HangmanPanel.class).to(HangmanStickmanPanel.class);
     }
 
 }

@@ -4,11 +4,19 @@
  */
 package hangman.model;
 
+import com.google.inject.Inject;
+
 /**
  *
  * @author jaime.cacuna Valentina Alvarado
  */
 public class OriginalScore implements GameScore {
+
+    private int puntaje;
+    @Inject
+    public OriginalScore() {
+        puntaje = 100;
+    }
     
     /*
     * Esta clase calcula el puntaje para el tipo de juego original.
@@ -22,7 +30,6 @@ public class OriginalScore implements GameScore {
     * @throws cuando correctCount o incorrectCount son valores negativos
     */
     public int calculateScore(int correctCount, int incorrectCount) throws GameScoreException{
-        int puntaje = 100;
         if(correctCount <0 || incorrectCount < 0){
             throw new GameScoreException(GameScoreException.INVALIDCOUNT);
         }else{
